@@ -23,7 +23,7 @@ app.get('/flashcard', function(req, res) {
 })
 
 app.post('/flashcard/add', function (req, res) {
-  let {english, turkish} = req.body;
+  const {english, turkish} = req.body;
   db.addToDictionary(english, turkish, (err, results) => {
     if (err) {
       console.log(err);
@@ -33,6 +33,30 @@ app.post('/flashcard/add', function (req, res) {
     }
   })
 })
+
+app.put('/flashcard/update', function (req, res) {
+  const {english, turkish} = req.body;
+  db.updateDictionary(english, turkish, (err, results) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.status(200).json(results);
+    }
+  });
+});
+
+app.delete('/flashcard/delete', (req, res) => {
+  const {english, turkish} = req.body;
+  db.deleteFromDictionary(english, turkish, (err, results) => {
+    if(err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.status(200).json(results);
+    }
+  });
+});
 
 app.listen(port, function() {
   console.log(`listening on port ${port}`);

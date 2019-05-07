@@ -12,7 +12,7 @@ class RemainingCards extends React.Component {
       deckTitle='Remaining Cards'
       cardTitle={this.props.words && this.props.words.length > 0 ? this.props.words[0].english : null}
       handleStateChange={this.props.handleStateChange}
-      buttonColor='#00B1E1'
+      buttonColor='#1E90FF'
       marginTop='70px'
       gridColumn='4/5'
     />);

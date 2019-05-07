@@ -7,6 +7,8 @@ import DontKnowCard from './components/DontKnowCard.jsx';
 import RemainingCards from './components/RemainingCards.jsx';
 import Start from './components/Start.jsx';
 import AddWord from './components/AddWord.jsx';
+import UpdateCard from './components/UpdateCard.jsx';
+import DeleteCard from './components/DeleteCard.jsx';
 
 class Flashcard extends React.Component {
   constructor (props) {
@@ -17,13 +19,14 @@ class Flashcard extends React.Component {
       knownWords: [],
       unknownWords: [],
       remainingWords: [],
-      words: [],
+      words: []
     }
     this.getWords = this.getWords.bind(this);
     this.handleGameStateChange = this.handleGameStateChange.bind(this);
     this.handleKnowStateChange = this.handleKnowStateChange.bind(this);
     this.handleDontKnowStateChange = this.handleDontKnowStateChange.bind(this);
   }
+
 
   handleGameStateChange() {
     this.state.currentWord = this.state.words && this.state.words.length > 0 ? this.state.words[0] : null;
@@ -73,6 +76,8 @@ class Flashcard extends React.Component {
       <DontKnowCard words={this.state.unknownWords} handleStateChange={this.handleDontKnowStateChange}/>
       <Start getWords={this.getWords}/>
       <AddWord/>
+      <UpdateCard/>
+      <DeleteCard/>
     </div>);
   }
 }

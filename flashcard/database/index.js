@@ -15,14 +15,14 @@ var getAllWords = function(callback) {
   });
 }
 
-var updateDictionary = function(callback) {
-  connection.query('UPDATE dictionary SET turkish = ? WHERE english = (?)', function(err, results) {
+var updateDictionary = function(english, turkish,callback) {
+  connection.query('UPDATE dictionary SET turkish = ? WHERE english = (?)', [english, turkish], function(err, results) {
     callback(err, results);
   });
 }
 
-var deleteFromDictionary = function(callback) {
-  connection.query('DELETE FROM dictionary WHERE english = ?', function(err, results) {
+var deleteFromDictionary = function(english, turkish, callback) {
+  connection.query('DELETE FROM dictionary WHERE english=? AND turkish=?', [english, turkish], function(err, results) {
     callback(err, results);
   });
 }

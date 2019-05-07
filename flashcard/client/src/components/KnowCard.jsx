@@ -11,7 +11,7 @@ class KnowCard extends React.Component {
       deckTitle='Know'
       cardTitle={this.props.words && this.props.words.length > 0 ? this.props.words[0].english : null}
       handleStateChange={this.props.handleStateChange}
-      buttonColor='#8CC152'
+      buttonColor='#32CD32'
       marginTop='40px'
       gridColumn='1/2'
     />);

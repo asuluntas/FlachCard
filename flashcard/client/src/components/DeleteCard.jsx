@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-class AddWord extends React.Component {
+class DeleteCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,7 +10,7 @@ class AddWord extends React.Component {
     }
     this.onEnglishChange = this.onEnglishChange.bind(this);
     this.onTurkishChange = this.onTurkishChange.bind(this);
-    this.addWords = this.addWords.bind(this);
+    this.deleteCard = this.deleteCard.bind(this);
   }
 
   onEnglishChange(e) {
@@ -27,9 +27,8 @@ class AddWord extends React.Component {
     });
   }
 
-
-  addWords() {
-    axios.post('/flashcard/add', {
+  deleteCard() {
+    axios.delete('/flashcard/delete', {
       english: this.state.english,
       turkish: this.state.turkish
     })
@@ -42,8 +41,8 @@ class AddWord extends React.Component {
   }
 
   render() {
-    return (<div className='addWord'>
-      <h3 >Add new flash card</h3>
+    return (<div className='deleteCard'>
+      <h3 >Delete flash card</h3>
       <label>English:
           <input
           type="text"
@@ -66,4 +65,4 @@ class AddWord extends React.Component {
   }
 }
 
-export default AddWord;
+export default DeleteCard;
