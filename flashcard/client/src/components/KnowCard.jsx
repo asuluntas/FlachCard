@@ -1,4 +1,5 @@
 import React from 'react';
+// import MainCard from './MainCard.jsx';
 
 class KnowCard extends React.Component {
   constructor(props) {
@@ -11,9 +12,11 @@ class KnowCard extends React.Component {
 
   render() {
     return (<div className='knowcard'>
-      <div className='word'>Friday</div>
+      <div className='word'></div>
     </div>);
   }
 }
 
 export default KnowCard;
+
+{/* <MainCard words={this.props.words}/> */}

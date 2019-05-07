@@ -10,12 +10,26 @@ var addToDictionary = function(callback) {
 }
 
 var getAllWords = function(callback) {
-  connection.query(`SELECT * FROM dictionary`, function(err, results) {
+  connection.query('SELECT * FROM dictionary', function(err, results) {
+    callback(err, results);
+  });
+}
+
+var updateDictionary = function(callback) {
+  connection.query('UPDATE dictionary SET turkish = ? WHERE english = (?)', function(err, results) {
+    callback(err, results);
+  });
+}
+
+var deleteFromDictionary = function(callback) {
+  connection.query('DELETE FROM dictionary WHERE english = ?', function(err, results) {
     callback(err, results);
   });
 }
 
 module.exports = {
+  deleteFromDictionary,
+  updateDictionary,
   addToDictionary,
   getAllWords
 }

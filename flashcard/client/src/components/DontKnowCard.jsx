@@ -11,7 +11,7 @@ class DontKnowCard extends React.Component {
 
   render() {
     return (<div className='dontknowcard'>
-      <div className='word'>Friday</div>
+      <div className='word'></div>
     </div>);
   }
 }

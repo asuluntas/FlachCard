@@ -22,6 +22,18 @@ app.get('/flashcard', function(req, res) {
   });
 })
 
+app.post('/flashcard/add', function (req, res) {
+  const {english, turkish} = req.body;
+  db.addToDictionary((err, results) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.status(200).json(results);
+    }
+  })
+})
+
 app.listen(port, function() {
   console.log(`listening on port ${port}`);
 });

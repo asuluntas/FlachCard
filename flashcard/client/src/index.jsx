@@ -18,13 +18,14 @@ class Flashcard extends React.Component {
       gameOn: false,
       knownOn: false,
       dontKnowOn: false,
-      words: []
+      words: [],
     }
     this.getWords = this.getWords.bind(this);
     this.handleGameStateChange = this.handleGameStateChange.bind(this);
     this.handleKnownStateChange = this. handleKnownStateChange.bind(this);
     this.handleDontKnowStateChange = this.handleDontKnowStateChange.bind(this);
   }
+
 
   handleGameStateChange() {
     this.setState({
@@ -52,15 +53,16 @@ class Flashcard extends React.Component {
       .then(() => {this.handleGameStateChange(); console.log('state', this.state)})
   }
 
+
   render() {
     return (<div className="container">
       <Know handleKnownStateChange={this.handleKnownStateChange}/>
       <DontKnow handleDontKnowStateChange={this.handleDontKnowStateChange}/>
       <RemainingCards/>
-      <CardStack words={this.state.words}/>
-      {this.state.gameOn ? <MainCard/> : null}
+      <CardStack/>
+      {this.state.gameOn ? <MainCard words={this.state.words}/> : null}
       {this.state.dontKnowOn ? <DontKnowCard/> : null}
-      {this.state.knownOn ? <KnowCard/> : null}
+      {this.state.knownOn ? <KnowCard words={this.state.words}/> : null}
       <Start getWords={this.getWords}/>
     </div>);
   }
