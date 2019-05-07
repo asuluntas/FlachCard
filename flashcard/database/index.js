@@ -3,8 +3,8 @@ const mysqlConfig = require('./config.js');
 
 const connection = mysql.createConnection(mysqlConfig);
 
-var addToDictionary = function(callback) {
-  connection.query(`INSERT INTO dictionary (english, turkish) VALUES (?, ?)`, function(err, results) {
+var addToDictionary = function(english, turkish, callback) {
+  connection.query(`INSERT INTO dictionary (english, turkish) VALUES (?, ?)`, [english, turkish], function(err, results) {
     callback(err, results);
   });
 }

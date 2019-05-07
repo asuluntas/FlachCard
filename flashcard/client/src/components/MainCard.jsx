@@ -4,31 +4,28 @@ class MainCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentIndex: 0
+      answer: false,
+      lastWord: props.word.english
     }
-    this.getCurrentCard = this.getCurrentCard.bind(this);
-    this.incrementIndex = this.incrementIndex.bind(this);
+    this.handleAnswerStateChange=this.handleAnswerStateChange.bind(this);
   }
 
-  componentDidMount() {
-    this.incrementIndex();
-    console.log('index', this.state.currentIndex);
-  }
-
-  getCurrentCard() {
-    return this.props.words[this.state.currentIndex].english;
-  }
-
-  incrementIndex() {
+  handleAnswerStateChange() {
     this.setState({
-      currentIndex: this.state.currentIndex++
+      answer: !this.state.answer
     });
   }
 
   render() {
-    return (<div className='maincard'>
-      <div className='wordmain'>{this.getCurrentCard()}</div>
-      </div>);
+    if (this.props.word.english !== this.state.lastWord) {
+      this.state.answer = false;
+      this.state.lastWord = this.props.word.english;
+    }
+    return (
+      <button className='maincard' onClick={this.handleAnswerStateChange}>
+        <div className='wordmain'>{this.state.answer ? this.props.word.turkish : this.props.word.english}</div>
+      </button>
+    );
   }
 }
 

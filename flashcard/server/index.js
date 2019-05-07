@@ -23,8 +23,8 @@ app.get('/flashcard', function(req, res) {
 })
 
 app.post('/flashcard/add', function (req, res) {
-  const {english, turkish} = req.body;
-  db.addToDictionary((err, results) => {
+  let {english, turkish} = req.body;
+  db.addToDictionary(english, turkish, (err, results) => {
     if (err) {
       console.log(err);
       res.sendStatus(500);

@@ -6,10 +6,19 @@ class CardStack extends React.Component {
   }
 
   render() {
-    return (<div className='cardstack'>
-      <div className='word'>Flash Cards</div>
-    </div>);
+    return (<div style={{ marginTop: this.props.marginTop, gridColumn: this.props.gridColumn}}>
+      <div className='card' hidden={!this.props.cardTitle}>
+        <div className='word'> {this.props.cardTitle} </div>
+      </div>
+      <button
+        className="button"
+        style={{ marginTop: 80, backgroundColor: this.props.buttonColor, zIndex: 5}}
+        onClick={this.props.handleStateChange}>{this.props.deckTitle}
+      </button>
+    </div>
+    );
   }
 }
 
 export default CardStack;
+
