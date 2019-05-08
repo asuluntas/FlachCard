@@ -42,7 +42,7 @@ class UpdateCard extends React.Component {
 
   render() {
     return (<div className='deleteCard'>
-      <h3 >Add new flash card</h3>
+      <h3 >Update flash card</h3>
       <label>English:
           <input
           type="text"
@@ -60,7 +60,7 @@ class UpdateCard extends React.Component {
           onChange={this.onTurkishChange}>
           </input>
         </label>
-        <button onClick={this.addWords}>Add</button>
+        <button onClick={this.addWords}>Update</button>
     </div>);
   }
 }

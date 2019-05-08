@@ -60,7 +60,7 @@ class DeleteCard extends React.Component {
           onChange={this.onTurkishChange}>
           </input>
         </label>
-        <button onClick={this.addWords}>Add</button>
+        <button onClick={this.addWords}>Delete</button>
     </div>);
   }
 }

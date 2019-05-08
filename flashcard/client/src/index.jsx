@@ -69,7 +69,9 @@ class Flashcard extends React.Component {
 
 
   render() {
-    return (<div className="container">
+    return (<div>
+    <h2 className='title'>English - Turkish Flash Cards</h2>
+    <div className="container">
       {this.state.remainingCards ? <MainCard word={this.state.currentWord}/> : null}
       <KnowCard words={this.state.knownWords} handleStateChange={this.handleKnowStateChange}/>
       <RemainingCards words={this.state.remainingCards} handleStateChange={null}/>
@@ -78,6 +80,7 @@ class Flashcard extends React.Component {
       <AddWord/>
       <UpdateCard/>
       <DeleteCard/>
+    </div>
     </div>);
   }
 }
